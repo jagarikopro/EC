@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="common :: head">
+  </head>
+
+  <body>
+
+    <div th:replace="common :: header"></div>
+    <main role="main" class="container">
+
+      <div class="starter-template">
+        <h1 th:text="${title}">Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+
+<div th:object="${userForm}">
+<div class="mb-5">
+<ul class="list-group">
+  <li th:text="*{name}"　class="list-group-item">Dapibus ac facilisis in</li>
+  <li th:text="*{email}"　class="list-group-item">Morbi leo risus</li>
+  <li th:text="*{password}"class="list-group-item">Porta ac consectetur ac</li>
+</ul>
+</div>
+<form method="post" action="#" th:action="@{/user/form}">
+	<input type="hidden" name="name" th:value="*{name}">
+	<input type="hidden" name="email" th:value="*{email}">
+	<input type="hidden" name="password" th:value="*{password}">
+	<button type="submit" class="btn btn-primary">Go Back</button>
+</form>
+<form method="post" action="#" th:action="@{/user/complete}">
+	<input type="hidden" name="name" th:value="*{name}">
+	<input type="hidden" name="email" th:value="*{email}">
+	<input type="hidden" name="password" th:value="*{password}">
+	<button type="submit" class="btn btn-primary">Complete</button>
+</form>
+</div>
+
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="@{/js/jquery-slim.min.js}"><\/script>')</script>
+    <!-- <script src="../../assets/js/vendor/popper.min.js"  th:src="@{/js/popper.min.js}"></script> -->
+    <script src="../../dist/js/bootstrap.min.js"  th:src="@{/js/bootstrap.min.js}"></script>
+  </body>
+</html>

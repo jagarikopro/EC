@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="common :: head">
+  <body>
+
+    <div th:replace="common :: header"></div>
+    <main role="main" class="container">
+
+      <div class="starter-template">
+        <h1 th:text="${title}">Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+
+      <div th:unless="${#strings.isEmpty(complete)}" >
+        <div th:text="${complete}" class="alert alert-success" role="alert">
+          A simple success alert?check it out!
+        </div>
+      </div>
+
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>price</th>
+          <th>unit</th>
+          <th>stock</th>
+          <th>created</th>
+        </tr>
+        <tr th:each="product : ${Productlist}">
+          <td th:text="${product.name}"></td>
+          <td th:text="${product.description}"></td>
+          <td th:text="${product.price}"></td>
+          <td th:text="${product.unit}"></td>
+          <td th:text="${product.stockNum}"></td>
+          <td th:text="${product.created}"></td>
+          <td th:unless="${#strings.isEmpty(product.image)}"><img th:src="'/images/' + ${product.image}" class="images"></img></td>
+          <td th:if="${#strings.isEmpty(product.image)}"><img src="/images/no_image.png" class="images"></img></td>
+          <td><a type="button" th:href="@{/product/{id}(id=${product.productId})}">編集</a></td>
+          <td>
+            <form method="POST" th:action="@{/product/delete}">
+              <input type="hidden" name="productId" th:value="${product.productId}">
+              <input type="submit" value="削除">
+            </form>
+          </td>
+        </tr>
+      </table>
+      <a href="/product/form">新規登録</a>
+    </main>
+  </body>
+</html>

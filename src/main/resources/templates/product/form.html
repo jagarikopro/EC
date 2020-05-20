@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="common :: head">
+  </head>
+
+  <body>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <div th:replace="common :: header"></div>
+    <main role="main" class="container">
+
+      <div class="starter-template">
+        <h1 th:text="${title}">Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+      
+
+      <div th:unless="${#strings.isEmpty(complete)}" >
+        <div th:text="${complete}" class="alert alert-success" role="alert">
+          A simple success alert?check it out!
+        </div>
+      </div>
+	
+      <form method="post" enctype="multipart/form-data" th:action="${productForm.isNewProduct}? @{/product/insert} : @{/product/update}" th:object="${productForm}">
+      <!-- <form method="post" action="#" th:action="@{/product/insert}" th:object="${productForm}"> -->
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" name="name" class="form-control" id="name" th:value="*{name}">
+        </div>
+        <div class="text-danger mb-4" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" name="description" class="form-control" id="description"  th:value="*{description}">
+        </div>
+        <div class="text-danger mb-4" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="text" name="price" class="form-control" id="price" th:value="*{price}">
+        </div>
+        <div class="text-danger mb-4" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+        <div class="form-group">
+          <label for="price">Unit</label>
+          <div class="radio" th:each="item : ${unitItems}">
+            <label>
+              <input type="radio" name="fradio" th:value="${item.value}" th:text="${item.key}" th:field="*{unit}"></input>
+            </label>
+          </div>
+          <div class="text-danger mb-4" th:if="${#fields.hasErrors('unit')}" th:errors="*{unit}"></div>
+        </div>
+        <div class="form-group">
+          <label for="stock">stock</label>
+          <input type="text" name="stock" class="form-control" id="stock" th:value="*{stock}">
+        </div>
+        <div class="text-danger mb-4" th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></div>
+        <div th:unless="${productForm.isNewProduct}">
+          <div th:unless="${#strings.isEmpty(productForm.image)}">
+            <img th:src="'/images/' + ${productForm.image}" class="images"></img>
+            <p>画像を変更する場合は下のファイル選択を行ってください</p>
+          </div>
+        </div>
+        <input name="fileData" type="file" />
+        <input type="hidden" name="product_id" class="form-control" id="product_id" th:value="*{product_id}">
+        <button type="submit" class="btn btn-primary">登録</button>
+      </form>
+    </main>
+  </body>

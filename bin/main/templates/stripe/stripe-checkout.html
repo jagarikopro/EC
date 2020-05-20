@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: head">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stripe checkout.jsの動作確認</title>
+</head>
+<body>
+<form action="#" th:action="@{'/pay'}" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js"
+    class="stripe-button"
+    data-key="pk_test_sO8HLbbU0cthDAYRbG9CWZuD000SSgurSm"
+    data-name="Tシャツ"
+    data-description="コットンTシャツ"
+    data-amount="500"
+    data-currency="jpy">
+  </script>
+</form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common :: head">
+</head>
+
+<body>
+  <div th:replace="common :: header"></div>
+  <h1 class="search-result" th:text="${title}"></h1>
+  <div id="products"></div>
+  <script type="text/template" id="product-template">
+  <div class="modal product-modal">
+    <div class="modal_bg"></div>
+    <div class="product_details">
+      <!-- <div id="pleaseLogin" class="alert alert-success" role="alert" style="display:none"></div> -->
+      <% if(image != null){ %>
+        <img src="../../images/<%- image %>" class="productImage">
+      <% } else{ %>
+        <img src="../../images/no_image.png" class="productImage">
+      <% }%>
+      <br>
+      <%- name %>
+      <%- price %>
+      <%- unit %>
+      <br>
+      <%- description %>
+      <br>
+      <a class="modal-close" href="">閉じる</a>
+      <a class="cart-in" href="">カートにいれる</a>
+      <input id="count" type="number" min="1" value="1">
+    </div>
+  </div>
+    <% if(image != null){ %>
+  <img src="../../images/<%- image %>" class="productImage">
+  <% } else{ %>
+  <img src="../../images/no_image.png" class="productImage">
+  <% }%>
+  <br>
+    <%- name %>
+    <%- price %>
+    <%- unit %>
+    <br>
+    <%- description %>
+    <!-- <%- image %> -->
+    <!-- <span class="delete">[x]</span> -->
+  </script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://underscorejs.org/underscore.js"></script>
+<script src="https://backbonejs.org/backbone.js"></script>
+<script type="text/javascript" src="/js/jquery.pagination.js" th:src="@{/js/jquery.pagination.js}"></script>
+<script src="/js/top.js" th:src="@{/js/top.js}"></script>
+</body>
+
+</html>

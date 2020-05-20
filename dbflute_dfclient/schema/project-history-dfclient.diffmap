@@ -1,0 +1,202 @@
+map:{
+    ; 2020/05/07 22:51:51 = map:{
+        ; diffDate = 2020/05/07 22:51:51
+        ; diffAuthor = jagar
+        ; tableDiff = map:{
+            ; orders = map:{
+                ; tableName = orders
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; order_num = map:{
+                        ; columnName = order_num
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2020/05/06 15:28:20 = map:{
+        ; diffDate = 2020/05/06 15:28:20
+        ; diffAuthor = jagar
+        ; tableDiff = map:{
+            ; stock = map:{
+                ; tableName = stock
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; temporary_sales = map:{
+                        ; columnName = temporary_sales
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2020/05/03 17:16:47 = map:{
+        ; diffDate = 2020/05/03 17:16:47
+        ; diffAuthor = jagar
+        ; tableDiff = map:{
+            ; cart = map:{
+                ; tableName = cart
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; cart_id = map:{
+                        ; columnName = cart_id
+                        ; diffType = CHANGE
+                        ; autoIncrementDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = ADD
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; cart_id = map:{
+                        ; constraintName = cart_id
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2020/05/03 17:02:28 = map:{
+        ; diffDate = 2020/05/03 17:02:28
+        ; diffAuthor = jagar
+        ; tableDiff = map:{
+            ; cart = map:{
+                ; tableName = cart
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; cart_id = map:{
+                        ; columnName = cart_id
+                        ; diffType = CHANGE
+                        ; autoIncrementDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = DELETE
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; cart_id = map:{
+                        ; constraintName = cart_id
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2020/04/16 19:18:54 = map:{
+        ; diffDate = 2020/04/16 19:18:54
+        ; diffAuthor = jagar
+        ; tableDiff = map:{
+            ; cart = map:{
+                ; tableName = cart
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; cart_id = map:{
+                        ; columnName = cart_id
+                        ; diffType = CHANGE
+                        ; autoIncrementDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+            }
+            ; stock = map:{
+                ; tableName = stock
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; stock_id = map:{
+                        ; columnName = stock_id
+                        ; diffType = CHANGE
+                        ; autoIncrementDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2020/04/16 14:25:49 = map:{
+        ; diffDate = 2020/04/16 14:25:49
+        ; tableCount = map:{
+            ; next = 5
+            ; previous = 4
+        }
+        ; diffAuthor = jagar
+        ; tableDiff = map:{
+            ; orders = map:{
+                ; tableName = orders
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2020/04/16 14:01:50 = map:{
+        ; diffDate = 2020/04/16 14:01:50
+        ; tableCount = map:{
+            ; next = 4
+            ; previous = 2
+        }
+        ; diffAuthor = jagar
+        ; tableDiff = map:{
+            ; cart = map:{
+                ; tableName = cart
+                ; diffType = ADD
+            }
+            ; stock = map:{
+                ; tableName = stock
+                ; diffType = ADD
+            }
+            ; user = map:{
+                ; tableName = user
+                ; diffType = CHANGE
+                ; uniqueKeyDiff = map:{
+                    ; email = map:{
+                        ; constraintName = email
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2020/04/14 00:02:02 = map:{
+        ; diffDate = 2020/04/14 00:02:02
+        ; tableCount = map:{
+            ; next = 2
+            ; previous = 1
+        }
+        ; diffAuthor = jagar
+        ; tableDiff = map:{
+            ; user = map:{
+                ; tableName = user
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2020/04/10 01:05:19 = map:{
+        ; diffDate = 2020/04/10 01:05:19
+        ; tableCount = map:{
+            ; next = 1
+            ; previous = 0
+        }
+        ; diffAuthor = jagar
+        ; tableDiff = map:{
+            ; product = map:{
+                ; tableName = product
+                ; diffType = ADD
+            }
+        }
+    }
+}

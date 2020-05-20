@@ -1,0 +1,57 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title th:text="${title}">ECsite</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/4.4/dist/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="/docs/4.4/dist/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/starter-template/">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <head th:replace="common :: head"></head>
+</head>
+
+<body class="text-center">
+    <div th:replace="common :: header"></div>
+    <main role="main" class="contentsub">
+        <div th:unless="${#strings.isEmpty(error)}" >
+            <div th:text="${error}" class="alert alert-warning" role="alert"></div>
+        </div>
+        <form class="form-signin" id="login_form" method="post" th:action="@{'/login'}" th:object="${userForm}">
+            <h1 class="h3 mb-3 font-weight-normal">ログイン画面</h1>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Email address" th:value="*{email}" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="password" th:value="*{password}" required>
+            <!-- <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div> -->
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <a href="/user/form">新規登録</a>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+        </form>
+    </main>
+</body>
+
+</html>

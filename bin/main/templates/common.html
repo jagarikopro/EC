@@ -1,0 +1,57 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="utf-8">
+        <title>ECsite</title>
+        <!-- Bootstrap core CSS -->
+        <link href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="starter-template.css" th:href="@{/css/starter-template.css}" rel="stylesheet">
+        <link href="product.css" th:href="@{/css/product.css}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="slick.css" th:href="@{/slick/slick-theme.css}">
+        <link rel="stylesheet" type="text/css" href="slick.css" th:href="@{/slick/slick.css}">
+    </head>
+    <body>
+        <header th:fragment="header">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script type="text/javascript" src="common.js" th:src="@{/js/common.js}"></script>
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <a class="navbar-brand" href="#" th:href="@{/}">ECsite</a>
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#" th:href="@{/}">メイン</a>
+                        </li>
+                        <li class="nav-item logincheck"></li>
+                        <li class="nav-item cartcheck"></li>
+                        <li class="nav-item cartcount"></li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" method="post" action="#" th:action="@{/home/likeSearch}" th:object="${productForm}">
+                        <input class="form-control mr-sm-2" id="likeSerch" type="text" placeholder="商品検索" aria-label="Search" th:field="*{name}">
+                        <!-- <div class="text-danger mb-4" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div> -->
+                        <button class="btn btn-secondary my-2 my-sm-0 likeSerch" type="submit">検索</button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        <div th:unless="${#strings.isEmpty(error)}" >
+            <div th:text="${error}" class="alert alert-warning" role="alert">
+                A simple success alert?check it out!
+            </div>
+        </div>
+        <footer th:fragment="footer" class="footer">
+            <a>Original EC Site Creat Now</a>
+            <ul>
+                <li>メルマガ登録・解除</li>
+                <li>LINE＠登録</li>
+                <li>Instagram</li>
+                <li>初めての方へ</li>
+                <li>よくある質問</li>
+                <li>利用規約</li>
+                <li>お問い合わせ</li>
+                <li>会社概要</li>
+                <li>特定商取引法に基づく表記</li>
+            </ul>
+            <div>ECSITE, ALL RIGHTS RESERVED</div>
+        </footer>
+    </body>
+</html>

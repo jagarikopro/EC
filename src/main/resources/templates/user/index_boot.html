@@ -1,0 +1,34 @@
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="common :: head">
+  </head>
+  <body>
+    <div th:replace="common :: header"></div>
+    <main role="main" class="container">
+      
+      <div class="starter-template">
+        <h1 th:text="${title}">Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">email</th>
+            <th scope="col">datetime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="user : ${Userlist}">
+            <th scope="row" th:text="${user.userId}">1</th>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.created}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    </html>
+    

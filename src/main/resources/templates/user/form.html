@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="common :: head">
+  </head>
+  <body>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <div th:replace="common :: header"></div>
+    <main role="main" class="container">
+
+      <div class="starter-template">
+        <h1 th:text="${title}">Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+      
+
+	<div th:unless="${#strings.isEmpty(complete)}" >
+		<div th:text="${complete}" class="alert alert-success" role="alert">
+		  A simple success alert?check it out!
+		</div>
+	</div>
+	
+	<form method="post" action="#" th:action="@{/user/confirm}" th:object="${userForm}">
+	  <div class="form-group">
+	    <label for="name">Name</label>
+	    <input type="text" name="name" class="form-control" id="name" th:value="*{name}">
+	  </div>
+	  <div class="text-danger mb-4" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+	  <div class="form-group">
+	    <label for="email">Email</label>
+	    <input type="text" name="email" class="form-control" id="email"  th:value="*{email}">
+	  </div>
+    <div class="text-danger mb-4" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    <div class="form-group">
+      <label for="password">password</label>
+      <input type="password" name="password" class="form-control" id="detail" th:value="*{password}">
+    </div>
+    <div class="text-danger mb-4" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+	<button type="submit" class="btn btn-primary">Confirm</button>
+	</form>
+    </main><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="@{/js/jquery-slim.min.js}"><\/script>')</script>
+    <!-- <script src="../../assets/js/vendor/popper.min.js"  th:src="@{/js/popper.min.js}"></script> -->
+    <script src="../../dist/js/bootstrap.min.js"  th:src="@{/js/bootstrap.min.js}"></script>
+  </body>

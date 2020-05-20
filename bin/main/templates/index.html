@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>メインページ</title>
+</head>
+
+<body>
+    メインページです。
+<a class="nav-link" href="#" th:href="@{/buyyer}" th:object="${userForm}">buy</a>
+<a class="nav-link" href="#" th:href="@{/logout}" >logout</a>
+</body>
+
+</html>
