@@ -190,8 +190,8 @@ if $rpm_mode && [ -x /usr/bin/build-classpath ] ; then
   if [ -f "$JAVA_HOME/lib/tools.jar" ] ; then
     LOCALCLASSPATH="$LOCALCLASSPATH:$JAVA_HOME/lib/tools.jar"
   fi
-  if [ -f "$JAVA_HOME/lib/classes.zip" ] ; then
-    LOCALCLASSPATH="$LOCALCLASSPATH:$JAVA_HOME/lib/classes.zip"
+  # if [ -f "$JAVA_HOME/lib/classes.zip" ] ; then
+    # LOCALCLASSPATH="$LOCALCLASSPATH:$JAVA_HOME/lib/classes.zip"
   fi
 
   # if CLASSPATH_OVERRIDE env var is set, LOCALCLASSPATH will be

@@ -53,7 +53,7 @@ interpret 'call "' || runrc || '"' '"' || antconf || '"' 'ETC'
 ANT_HOME = value('ANT_HOME',,env)
 JAVA_HOME = value('JAVA_HOME',,env)
 classpath = value('CLASSPATH',,env)
-classes = stream(JAVA_HOME || "\lib\classes.zip", "C", "QUERY EXISTS")
+REM classes = stream(JAVA_HOME || "\lib\classes.zip", "C", "QUERY EXISTS")
 if classes \= '' then classpath = prepend(classpath classes)
 classes = stream(JAVA_HOME || "\lib\tools.jar", "C", "QUERY EXISTS")
 if classes \= '' then classpath = prepend(classpath classes)
